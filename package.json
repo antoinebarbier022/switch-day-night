@@ -1,0 +1,21 @@
+{
+  "name": "switch-day-night",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "author": "Antoine Barbier",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lit": "^2.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2"
+  }
+}
