@@ -2,8 +2,10 @@
 
 `switch-day-night` is a custom web component built with LitElement that represents a switch control. It provides a toggle functionality with customizable styling options.
 
-![Illstration](illustration.png)
+![Illstration](public/assets/illustration.png)
 Inspiration : [https://youtu.be/S6T6hrc8cQo](https://youtu.be/S6T6hrc8cQo)
+
+![Animation](public/assets/animation.gif)
 
 ## Installation
 
