@@ -48,6 +48,8 @@ The `switch-day-night` component has the following properties that you can set:
 - `disabled` (default: false): Determines whether the switch is disabled.
 - `defaultChecked` (default: false): Determines the initial checked state of the switch.
 
+- `checked` (default: false): Determines the checked state of the switch.
+
 ## Events
 
 The `switch-day-night` component dispatches the following event:

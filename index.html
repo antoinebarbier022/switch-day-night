@@ -32,6 +32,9 @@
         const mySwitch = document.querySelector('#test')
         mySwitch.checked = !mySwitch.checked
       })
+      document.querySelector('#test').addEventListener('onChange', (e) => {
+        console.log(e)
+      })
     </script>
   </div>
 

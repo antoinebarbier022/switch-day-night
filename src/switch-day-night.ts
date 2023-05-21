@@ -15,13 +15,6 @@ export class MySwitch extends LitElement {
   handleClick(event: Event) {
     event.preventDefault();
     this.checked = !this.checked;
-    this.dispatchEvent(
-      new CustomEvent("onChange", {
-        detail: {
-          checked: this.checked,
-        },
-      })
-    );
   }
 
   connectedCallback(): void {
@@ -38,8 +31,14 @@ export class MySwitch extends LitElement {
   protected updated(
     _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
   ): void {
-    if (_changedProperties.has("defaultChecked")) {
-      this.checked = this.defaultChecked;
+    if (_changedProperties.has("checked")) {
+      this.dispatchEvent(
+        new CustomEvent("onChange", {
+          detail: {
+            checked: this.checked,
+          },
+        })
+      );
     }
   }
   render() {
