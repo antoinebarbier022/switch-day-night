@@ -23,6 +23,16 @@
     <switch-day-night defaultChecked title="default : night"></switch-day-night>
     <switch-day-night disabled defaultChecked title="day disabled"></switch-day-night>
     <switch-day-night disabled title="night disabled"></switch-day-night>
+
+    <br />
+    <switch-day-night id="test"></switch-day-night>
+    <button id="idButton">Change switch state</button>
+    <script>
+      document.querySelector('#idButton').addEventListener('click', () => {
+        const mySwitch = document.querySelector('#test')
+        mySwitch.checked = !mySwitch.checked
+      })
+    </script>
   </div>
 
 </body>

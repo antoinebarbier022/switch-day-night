@@ -1,5 +1,5 @@
 import { LitElement, PropertyValueMap, css, html } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 
 @customElement("switch-day-night")
 export class MySwitch extends LitElement {
@@ -9,16 +9,16 @@ export class MySwitch extends LitElement {
   @property({ type: Boolean })
   defaultChecked = false;
 
-  @state()
-  private _checked = true;
+  @property({ type: Boolean })
+  checked?: boolean;
 
   handleClick(event: Event) {
     event.preventDefault();
-    this._checked = !this._checked;
+    this.checked = !this.checked;
     this.dispatchEvent(
       new CustomEvent("onChange", {
         detail: {
-          checked: this._checked,
+          checked: this.checked,
         },
       })
     );
@@ -26,18 +26,20 @@ export class MySwitch extends LitElement {
 
   connectedCallback(): void {
     super.connectedCallback();
-    this._checked = this.defaultChecked;
+    this.checked = this.defaultChecked;
   }
 
   protected firstUpdated(): void {
-    this._checked = this.defaultChecked;
+    if (!this.checked) {
+      this.checked = this.defaultChecked;
+    }
   }
 
   protected updated(
     _changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>
   ): void {
     if (_changedProperties.has("defaultChecked")) {
-      this._checked = this.defaultChecked;
+      this.checked = this.defaultChecked;
     }
   }
   render() {
@@ -45,7 +47,7 @@ export class MySwitch extends LitElement {
       class="switch"
       role="checkbox"
       aria-label="switch"
-      aria-checked=${this._checked}
+      aria-checked=${this.checked}
       aria-disabled=${this.disabled}
       ?disabled=${this.disabled}
       @click=${this.handleClick}
